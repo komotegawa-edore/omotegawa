@@ -2,7 +2,7 @@
 import { site } from '../data/site';
 import '../styles/global.css';
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
-const ogImage = Astro.site ? new URL(`${import.meta.env.BASE_URL}/og-image.svg`, Astro.site) : undefined;
+const ogImage = Astro.site ? new URL(`${import.meta.env.BASE_URL}/og-fv.png`, Astro.site) : undefined;
 ---
 <!doctype html>
 <html lang="ja">
@@ -18,6 +18,9 @@ const ogImage = Astro.site ? new URL(`${import.meta.env.BASE_URL}/og-image.svg`,
     {canonical && <link rel="canonical" href={canonical} />}
     {canonical && <meta property="og:url" content={canonical} />}
     {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta property="og:image:width" content="1200" />}
+    {ogImage && <meta property="og:image:height" content="630" />}
+    {ogImage && <meta property="og:image:alt" content="つくって 届けて 育てていく。表川知由のポートフォリオ" />}
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.svg`} type="image/svg+xml" />
     <title>{site.name} | {site.englishName}</title>
