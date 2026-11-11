@@ -20,21 +20,21 @@ export const projects = [
     subtitle: 'オンライン予備校の新規事業立ち上げ支援',
     description: 'オンライン校舎の立ち上げに伴い、Webサイトの制作から集客施策の設計・改善までを支援しています。',
     scope: ['Webサイト・LP制作', '広告運用・計測環境構築', '集客施策の設計・改善'],
-    tags: 'Web開発  /  広告運用  /  データ分析', link: 'https://online.naseva.net/', image: '/work-naseva.png', imageAlt: 'ナセバオンライン校舎のウェブサイトのトップ画面', imageLink: 'https://online.naseva.net/', imageCaption: 'ナセバオンライン校舎のウェブサイト',
+    tags: 'Web開発  /  広告運用  /  データ分析', link: 'https://online.naseva.net/', image: '/work-naseva.webp', imageAlt: 'ナセバオンライン校舎のウェブサイトのトップ画面', imageLink: 'https://online.naseva.net/', imageCaption: 'ナセバオンライン校舎のウェブサイト',
   },
   {
     number: '03', category: '個人事業 / WEB開発', title: 'Independent Web Development',
     subtitle: '個人でのWebサイト制作',
     description: '飲食店などのWebサイトを制作。目的や課題を整理するところから、公開後の運用まで一貫して対応しています。',
     scope: ['要件定義・設計', '開発・公開・保守', 'Astro / microCMS / Cloudflareの活用'],
-    tags: 'Astro  /  microCMS  /  Cloudflare', link: 'https://mise-route.jp/', image: '/work-sho.png', imageAlt: '炭火ジンギスカン翔のウェブサイトのトップ画面', imageLink: 'https://www.jingisukan-sho.com/', imageCaption: '制作事例：炭火ジンギスカン翔',
+    tags: 'Astro  /  microCMS  /  Cloudflare', link: 'https://mise-route.jp/', image: '/work-sho.webp', imageAlt: '炭火ジンギスカン翔のウェブサイトのトップ画面', imageLink: 'https://www.jingisukan-sho.com/', imageCaption: '制作事例：炭火ジンギスカン翔',
   },
   {
     number: '04', category: 'メディア / コンテンツ', title: 'YouTube Media Business',
     subtitle: 'YouTubeメディアの企画・運営',
     description: 'コンテンツの企画から公開後の分析・改善までを実践。開設約48日でチャンネル登録者1,000人に到達しました。',
     scope: ['メディア・コンテンツの企画', 'データ分析に基づく改善', 'チャンネル運営'],
-    tags: 'コンテンツ企画  /  データ分析  /  改善', link: 'https://www.youtube.com/@nemureru-nihonshi', image: '/work-youtube.png', imageAlt: 'YouTubeチャンネル「おやすみ日本史ばなし」の画面', imageLink: 'https://www.youtube.com/@nemureru-nihonshi', imageCaption: 'YouTubeチャンネル「おやすみ日本史ばなし」',
+    tags: 'コンテンツ企画  /  データ分析  /  改善', link: 'https://www.youtube.com/@nemureru-nihonshi', image: '/work-youtube.webp', imageAlt: 'YouTubeチャンネル「おやすみ日本史ばなし」の画面', imageLink: 'https://www.youtube.com/@nemureru-nihonshi', imageCaption: 'YouTubeチャンネル「おやすみ日本史ばなし」',
   },
 ];
 

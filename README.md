@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-表示されたローカルURL（通常は http://localhost:4321/omotegawa/ ）をブラウザで開きます。終了するにはターミナルで `Ctrl + C` を押します。
+表示されたローカルURL（通常は http://localhost:4321/ ）をブラウザで開きます。終了するにはターミナルで `Ctrl + C` を押します。
 
 ```sh
 npm run check  # Astro / TypeScriptの検証
@@ -25,16 +25,16 @@ npm run preview # ビルド結果をローカルで確認
 - `src/pages/index.astro`：各セクションの本文や構成を編集します。
 - `src/components/`：見出しとプロジェクトの表示を編集します。
 - `src/styles/global.css`：色、余白、文字組み、画面幅ごとの表示を編集します。
-- `public/og-image.svg`：仮のOGP画像です。公開時に必要に応じてPNGやJPEGに差し替えてください。
+- `public/og-fv.webp`：SNS共有用の画像です。
 
 ## 公開するとき
 
-1. `astro.config.mjs` の `defineConfig` に `site: 'https://あなたのドメイン'` を追加します。canonical、OGP URL、OGP画像URLが有効になります。
+1. `astro.config.mjs` の `site` を公開先URLに設定します。
 2. `src/data/site.ts` に実際の連絡先を設定します。
 3. `npm run check` と `npm run build` を実行し、`dist/` をCloudflare Pages、Netlifyなどの静的ホスティングに公開します。ビルドコマンドは `npm run build`、出力ディレクトリは `dist` です。
-4. SNSによってはSVGのOGP画像に対応しないため、共有用に1200×630のPNGまたはJPEGを用意し、`src/layouts/Layout.astro` の画像パスを変更してください。
+4. SNSで共有した際に画像が表示されるか確認してください。
 
-この初版は公開されていません。
+
 
 ## GitHub Pagesへの公開
 

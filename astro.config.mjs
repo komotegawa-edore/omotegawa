@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://komotegawa-edore.github.io',
-  base: '/omotegawa',
+  site: 'https://kazuyoshi.omotegawa.com',
   vite: { plugins: [tailwindcss()] },
 });
