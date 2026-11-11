@@ -1,0 +1,8 @@
+---
+interface Props { number: string; title: string; japanese: string; }
+const { number, title, japanese } = Astro.props;
+---
+<div class="section-heading">
+  <div class="section-index"><span>{number}</span><span class="index-line"></span></div>
+  <div><h2>{title}<span class="heading-dot">.</span></h2><p>{japanese}</p></div>
+</div>

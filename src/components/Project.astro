@@ -1,0 +1,17 @@
+---
+import type { projects } from '../data/site';
+import ArrowIcon from './ArrowIcon.astro';
+type Project = (typeof projects)[number];
+interface Props { project: Project; }
+const { project } = Astro.props;
+---
+<article class="project">
+  <div class="project-meta"><span class="project-number">{project.number}</span><span>{project.category}</span></div>
+  <div class="project-main">
+    <div class="project-title-row"><div><h3>{project.subtitle}</h3><p class="project-subtitle">{project.title}</p></div>{'link' in project && project.link && <a class="project-link" href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`${project.title}のサイトを新しいタブで開く`}><ArrowIcon /></a>}</div>
+    {'image' in project && project.image && <figure class="project-visual"><a href={project.imageLink} target="_blank" rel="noopener noreferrer" aria-label={`${project.imageCaption}を新しいタブで開く`}><img src={`${import.meta.env.BASE_URL}/${project.image.replace(/^\//, '')}`} alt={project.imageAlt} loading="lazy" decoding="async" /></a><figcaption>{project.imageCaption}<span aria-hidden="true"> ↗</span></figcaption></figure>}
+    <p class="project-description">{project.description}</p>
+    <div class="scope"><span>担当範囲</span><ul>{project.scope.map((item) => <li>{item}</li>)}</ul></div>
+    <p class="project-tags">{project.tags}</p>
+  </div>
+</article>

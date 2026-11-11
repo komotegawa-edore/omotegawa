@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Project from '../components/Project.astro';
+import ArrowIcon from '../components/ArrowIcon.astro';
+import { site, projects, skills } from '../data/site';
+const contacts = [ { label: 'X', url: site.contact.x }, { label: 'GitHub', url: site.contact.github }, { label: 'Email', url: site.contact.email } ].filter((item) => item.url.trim());
+---
+<Layout>
+  <a href="#main" class="skip-link">本文へスキップ</a>
+  <header class="site-header wrap">
+    <a href="#top" class="wordmark" aria-label="ページの先頭へ">KAZUYOSHI<br />OMOTEGAWA<span>.</span></a>
+    <nav aria-label="メインナビゲーション"><a href="#about">About</a><a href="#works">Works</a><a href="#interests">Vision</a><a href="#contact">Contact <span><ArrowIcon /></span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <div class="hero-top"><p class="eyebrow"><span class="blue-dot"></span> ENGINEERING × BUSINESS × ENTREPRENEURSHIP</p><span class="hero-location">NARA, JAPAN</span></div>
+      <div class="hero-art"><h1 id="hero-title" class="hero-image-heading"><img src={`${import.meta.env.BASE_URL}/hero-copy.png`} alt="つくって 届けて 育てていく。" width="510" height="1020" /></h1><img class="hero-illustration" src={`${import.meta.env.BASE_URL}/hero-illustration.png`} alt="" width="1536" height="1024" /></div>
+      <div class="hero-bottom"><div class="hero-intro"><p>大阪大学で情報科学を学びながら、<br class="desktop-break" />Web開発、デジタルマーケティング、<br class="desktop-break" />新規事業の立ち上げに取り組んでいます。</p><div class="hero-actions"><a class="button-primary" href="#works">実績を見る <span><ArrowIcon direction="down-right" /></span></a><a class="text-link" href="#contact">連絡先 <span><ArrowIcon /></span></a></div></div><div class="hero-signature"><span>PORTFOLIO / 2026</span><strong>表川 知由</strong><span>KAZUYOSHI OMOTEGAWA</span></div></div>
+      <div class="hero-foot"><span>SCROLL TO EXPLORE</span><span><ArrowIcon direction="down" /></span></div>
+    </section>
+    <section class="section wrap about" id="about"><SectionHeading number="01" title="About" japanese="私について" /><div class="section-content"><p class="lead">つくることから、<br />事業を動かすことまで。</p><div class="about-copy"><figure class="profile-photo"><img src={`${import.meta.env.BASE_URL}/profile.jpg`} alt="表川知由のポートレート" width="1152" height="1741" loading="lazy" /></figure><p>大阪大学で情報科学・数理科学を学びながら、学外ではWeb開発、スタートアップでの実務、個人事業に取り組んでいます。</p><p>技術を形にするだけでなく、その先にいる顧客や事業の成長まで考えること。課題を捉え、必要なことを自ら実装し、改善を重ねていくことを大切にしています。</p><div class="identity"><span>BASED IN NARA</span><span>{site.affiliation}</span></div></div></div></section>
+    <section class="section wrap works" id="works"><SectionHeading number="02" title="Selected Works" japanese="これまでの取り組み" /><div class="section-content"><div class="section-intro"><p>技術とビジネスの間を行き来しながら、<br />さまざまな課題に取り組んできました。</p><span>SELECTED PROJECTS / 01—04</span></div><div class="project-list">{projects.map((project) => <Project project={project} />)}</div></div></section>
+    <section class="section wrap skills" id="skills"><SectionHeading number="03" title="Skills" japanese="スキル" /><div class="section-content"><p class="skills-intro">課題に合わせて、技術・マーケティング・<br class="desktop-break" />事業の視点を組み合わせます。</p><div class="skills-list">{skills.map((skill, index) => <div class="skill-row"><span class="skill-index">0{index + 1}</span><h3>{skill.name}</h3><p>{skill.items}</p></div>)}</div></div></section>
+    <section class="vision-section" id="interests"><div class="wrap section vision-inner"><SectionHeading number="04" title="Interests & Vision" japanese="関心とこれから" /><div class="section-content"><p class="vision-lead">まだない価値を、<br />現実のものに。</p><div class="vision-copy"><p>フィジカルAI・ロボティクスと、宿泊・旅行分野のテクノロジーに関心があります。なかでも、宿泊施設そのものの運営と、宿泊業の課題をテクノロジーで解決する事業の両方に興味があります。</p><p>今は業界を限定せず、スタートアップで事業開発、プロダクト開発、事業成長の経験を積みたいと考えています。</p><div class="interest-list"><span>01 &nbsp; フィジカルAI・ロボティクス</span><span>02 &nbsp; 宿泊・旅行分野のテクノロジー</span></div></div></div></div></section>
+    <section class="section wrap contact" id="contact"><SectionHeading number="05" title="Contact" japanese="お問い合わせ" /><div class="section-content"><p class="contact-lead">一緒に、<br />次の一歩を。</p><div class="contact-bottom"><p>事業やプロダクトについてのご相談、<br />新しい出会いを楽しみにしています。</p>{contacts.length > 0 ? <div class="contact-links">{contacts.map((contact) => <a href={contact.url} {...(contact.label !== 'Email' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{contact.label}<span><ArrowIcon /></span></a>)}</div> : <p class="contact-note">連絡先は準備中です。</p>}</div></div></section>
+  </main>
+  <footer class="wrap footer"><a href="#top" class="footer-name">KAZUYOSHI OMOTEGAWA<span>.</span></a><p>© {new Date().getFullYear()} KAZUYOSHI OMOTEGAWA</p><a href="#top">BACK TO TOP <ArrowIcon direction="up" /></a></footer>
+</Layout>
