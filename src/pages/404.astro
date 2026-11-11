@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Layout title="ページが見つかりません | Kazuyoshi Omotegawa" description="お探しのページは見つかりませんでした。" noindex>
+  <main id="main" class="section wrap" style="display:block">
+    <h1 style="font-size:clamp(27px,3vw,42px);margin:0 0 24px">ページが見つかりません<span class="heading-dot">.</span></h1>
+    <p style="font-size:14px;line-height:2;margin:0 0 32px">お探しのページは移動または削除された可能性があります。</p>
+    <a class="button-primary" style="display:inline-flex;gap:16px" href={`${base}/`}>トップページへ戻る</a>
+  </main>
+</Layout>

@@ -30,3 +30,5 @@
 @media(max-width:600px){.lead,.vision-lead,.contact-lead,.section-intro p,.skills-intro{font-size:24px;line-height:1.7}.section-heading{padding-right:0}}
 .hero-art{margin-top:48px}
 @media(max-width:600px){.hero-art{margin-top:51px}}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

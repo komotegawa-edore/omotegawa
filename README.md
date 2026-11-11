@@ -39,3 +39,9 @@ npm run preview # ビルド結果をローカルで確認
 ## GitHub Pagesへの公開
 
 `main` ブランチへの更新時にGitHub Actionsがビルドし、GitHub Pagesへ公開します。サイトURLとベースパスは `astro.config.mjs` で管理します。独自ドメインへ切り替える場合は `site` と `base` を変更してください。
+
+## SEO・Search Console
+
+- 所有権確認はDNS（ドメインプロパティ `omotegawa.com`）を推奨します。HTMLタグ方式を使う場合は `src/data/site.ts` の `googleSiteVerification` に `content` の値を設定してください。
+- サイトマップは `public/sitemap.xml` です。ページを追加したら `<url>` を追記し、Search Consoleで再送信してください。
+- 404ページ（`src/pages/404.astro`）は `noindex` を出力し、canonicalを出力しません。
