@@ -28,3 +28,5 @@
 .lead,.vision-lead,.contact-lead,.section-intro p,.skills-intro{font-size:clamp(24px,2.35vw,34px);font-weight:700;line-height:1.65;letter-spacing:-.045em}
 .section-heading{min-width:0;padding-right:24px}.section-heading h2{overflow-wrap:anywhere}
 @media(max-width:600px){.lead,.vision-lead,.contact-lead,.section-intro p,.skills-intro{font-size:24px;line-height:1.7}.section-heading{padding-right:0}}
+.hero-art{margin-top:48px}
+@media(max-width:600px){.hero-art{margin-top:51px}}
