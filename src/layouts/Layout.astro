@@ -3,6 +3,25 @@ import { site } from '../data/site';
 import '../styles/global.css';
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 const ogImage = Astro.site ? new URL(`${import.meta.env.BASE_URL.replace(/\/$/, "")}/og-fv.webp`, Astro.site) : undefined;
+const profileImage = Astro.site ? new URL(`${import.meta.env.BASE_URL.replace(/\/$/, "")}/profile.webp`, Astro.site) : undefined;
+const structuredData = canonical && {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': canonical.href,
+  url: canonical.href,
+  inLanguage: 'ja',
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${canonical.href}#person`,
+    name: site.name,
+    alternateName: [site.name.replace(/\s+/g, ''), site.englishName],
+    url: canonical.href,
+    description: site.description,
+    ...(profileImage && { image: profileImage.href }),
+    affiliation: { '@type': 'CollegeOrUniversity', name: '大阪大学' },
+    sameAs: [site.contact.x, site.contact.github].filter(Boolean),
+  },
+};
 ---
 <!doctype html>
 <html lang="ja">
@@ -24,7 +43,7 @@ const ogImage = Astro.site ? new URL(`${import.meta.env.BASE_URL.replace(/\/$/, 
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
     <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon.webp`} type="image/webp" />
     <title>表川知由 | Kazuyoshi Omotegawa</title>
-    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "Person", name: "表川知由", alternateName: "Kazuyoshi Omotegawa", url: "https://kazuyoshi.omotegawa.com/", affiliation: { "@type": "CollegeOrUniversity", name: "大阪大学" }, sameAs: [site.contact.x].filter(Boolean) })} />
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
   </head>
   <body><slot /></body>
 </html>
